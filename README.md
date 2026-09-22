@@ -4,6 +4,7 @@ Segments a fintech app's user base into behavioral personas using only transacti
 
 Project Structure
 fintech_customer_segmentation/
+
 ├── data/fintech_users.csv        # 2,500 synthetic app users
 ├── src/
 │   ├── 01_generate_data.py        # data generation
@@ -13,6 +14,7 @@ fintech_customer_segmentation/
 ├── cluster_profiles.csv           # mean feature values per segment
 ├── results.json
 └── README.md
+
 Note on data: synthetic (2,500 users) but built from five realistic underlying behavioral archetypes with natural overlap and noise — close to what a real neobank/wallet app's event + transaction logs would look like. The pipeline runs unchanged on real user data with the same columns (income, spend, savings rate, app engagement, transaction habits, investment/credit balances).
 
 1. Features Used
@@ -40,6 +42,7 @@ Credit-Reliant Household — negative savings rate and high credit utilization s
 Try hierarchical clustering or DBSCAN and compare stability against K-means
 Track segment membership over time — persona transitions (e.g. Young Digital Spender → Steady Mainstream) are often more actionable than a single snapshot
 Feed cluster labels into a supervised model predicting a business outcome (e.g. investment product adoption) to test whether segments actually differ in the metric that matters
+
 How to Run
 pip install pandas numpy scikit-learn matplotlib seaborn
 python src/01_generate_data.py
