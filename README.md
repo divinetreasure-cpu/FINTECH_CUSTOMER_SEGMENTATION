@@ -8,7 +8,9 @@ Note on data: synthetic (2,500 users) but built from five realistic underlying b
 Ten behavioral and financial signals per user: age, monthly income, savings rate, % of spend that's discretionary, app opens/week, average transaction value, transactions/month, investment balance, credit utilization, and monthly spend.
 
 2. Key Preprocessing Decision (and why it mattered)
-Monetary features (income, investment balance, transaction value) are heavily right-skewed — a handful of high-net-worth users stretch the scale far beyond everyone else. Run K-means on standardized-but-untransformed data and it collapses to k=2: "high income" vs. "everyone else", because income dominates the distance metric. Log-transforming the skewed monetary features before scaling fixed this and revealed a much more useful k=4 structure (chosen by silhouette score, see plots/04_k_selection.png). This is a standard but easy-to-miss step — worth calling out explicitly since it changes the business usefulness of the result entirely.
+* Monetary features (income, investment balance, transaction value) are heavily right-skewed and a handful of high-net-worth users stretch the scale far beyond everyone else.
+* Run K-means on standardized-but-untransformed data and it collapses to k=2: "high income" vs. "everyone else", because income dominates the distance metric.
+* Log-transforming the skewed monetary features before scaling fixed this and revealed a much more useful k=4 structure (chosen by silhouette score, see plots/04_k_selection.png). This is a standard but easy-to-miss step, worth calling out explicitly since it changes the business usefulness of the result entirely.
 
 3. The Four Segments Found
 The data below is grouped according to Segment, Size, Age, Income, Savings, Rate and Key Trait
